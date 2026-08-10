@@ -206,13 +206,6 @@ export function SettingsScreen({ onBack, onAbout, toast }: Props) {
         </div>
       </section>
 
-      <section className="settings-section">
-        <div className="settings-section-heading"><span>{t('about.open')}</span></div>
-        <div className="settings-backup-actions">
-          <button type="button" className="settings-secondary" onClick={onAbout}>{t('about.open')}</button>
-        </div>
-      </section>
-
       <section className="settings-section settings-ai-section">
         <div className="settings-section-heading settings-ai-heading">
           <span>{t('settings.ai')}</span>
@@ -274,6 +267,13 @@ export function SettingsScreen({ onBack, onAbout, toast }: Props) {
           <input ref={jsonInputRef} type="file" accept=".json" onChange={event => { const file = event.target.files?.[0]; if (file) handleImportJSON(file) }} />
         </div>
         <button type="button" className="settings-danger" onClick={() => setClearConfirmOpen(true)}>{t('settings.clear')}</button>
+      </section>
+
+      <section className="settings-section">
+        <div className="settings-section-heading"><span>{t('about.open')}</span></div>
+        <div className="settings-backup-actions">
+          <button type="button" className="settings-secondary" onClick={onAbout}>{t('about.open')}</button>
+        </div>
       </section>
 
       <Modal open={clearConfirmOpen} title={t('settings.clearConfirm')} confirmText={t('modal.delete')} cancelText={t('modal.cancel')} confirmDanger onConfirm={() => { importBackup({ cards: [], emptyDecks: [], deckConfigs: {}, theme }); setClearConfirmOpen(false); toast(t('errors.clearData')) }} onCancel={() => setClearConfirmOpen(false)}><p>{t('settings.clearDesc')}</p></Modal>

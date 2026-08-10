@@ -15,6 +15,7 @@ export function getPathLocale(pathname: string): Locale | null {
 
 export function parseAppRoute(pathname: string): AppRoute {
   const rest = pathname.replace(LOCALE_PATTERN, '') || '/'
+  if (rest === '/') return { screen: 'about', deck: '' }
   if (rest === '/stats') return { screen: 'stats', deck: '' }
   if (rest === '/settings') return { screen: 'settings', deck: '' }
   if (rest === '/account') return { screen: 'account', deck: '' }

@@ -24,3 +24,9 @@ test('deck store route and catalog are available', () => {
     'English: Phrasal Verbs',
   ])
 })
+
+test('about page is the localized landing route', () => {
+  assert.deepEqual(parseAppRoute('/'), { screen: 'about', deck: '' })
+  assert.deepEqual(parseAppRoute('/en'), { screen: 'about', deck: '' })
+  assert.equal(buildAppPath('en', { screen: 'about', deck: '' }), '/en/about')
+})
