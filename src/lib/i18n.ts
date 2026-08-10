@@ -1351,5 +1351,11 @@ export function detectLocale(): Locale {
   const path = window.location.pathname
   const match = path.match(/^\/(ru|en|de|fr|pt|zh)/)
   if (match) return match[1] as Locale
-  return 'ru'
+
+  for (const language of navigator.languages.length ? navigator.languages : [navigator.language]) {
+    const locale = language.toLowerCase().split('-')[0]
+    if (LOCALES.some(({ code }) => code === locale)) return locale as Locale
+  }
+
+  return 'en'
 }
