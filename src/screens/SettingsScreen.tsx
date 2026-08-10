@@ -13,6 +13,7 @@ import { isTheme } from '../config/themes'
 
 interface Props {
   onBack: () => void
+  onAbout: () => void
   toast: (msg: string, err?: boolean) => void
 }
 
@@ -22,7 +23,7 @@ const PROVIDER_ICONS: Record<AIProviderId, typeof OpenAIIcon> = {
   ollama: OllamaIcon, lmstudio: LMStudioIcon,
 }
 
-export function SettingsScreen({ onBack, toast }: Props) {
+export function SettingsScreen({ onBack, onAbout, toast }: Props) {
   const { t } = useLocale()
   const { settings, setSettings, cards, emptyDecks, deckConfigs, folders, theme, importBackup } = useFlashStore()
   const [clearConfirmOpen, setClearConfirmOpen] = useState(false)
@@ -202,6 +203,13 @@ export function SettingsScreen({ onBack, toast }: Props) {
           ] as const).map(([key, title, description]) => (
             <ToggleSwitch key={key} checked={settings[key]} label={title} description={description} onChange={checked => updateSettings({ [key]: checked })} className="settings-toggle" />
           ))}
+        </div>
+      </section>
+
+      <section className="settings-section">
+        <div className="settings-section-heading"><span>{t('about.open')}</span></div>
+        <div className="settings-backup-actions">
+          <button type="button" className="settings-secondary" onClick={onAbout}>{t('about.open')}</button>
         </div>
       </section>
 

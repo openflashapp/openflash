@@ -186,7 +186,7 @@ function AppInner() {
           )}
           {screen === 'settings' && (
             <PageTransition key="settings">
-              <SettingsScreen onBack={() => navigate('decks')} toast={show} />
+              <SettingsScreen onBack={() => navigate('decks')} onAbout={() => navigate('about')} toast={show} />
             </PageTransition>
           )}
           {screen === 'account' && (

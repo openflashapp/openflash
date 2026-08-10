@@ -40,6 +40,7 @@ const translations: Record<Locale, Dict> = {
     'catalog.phrasal.description': 'Распространённые фразовые глаголы для практики.',
 
     'about.eyebrow': 'С ЧЕГО НАЧАТЬ',
+    'about.open': 'О проекте',
     'about.title': 'Карточки для осознанного обучения.',
     'about.lead': 'OpenFlash помогает создавать карточки, повторять их в удобном темпе и видеть прогресс без отвлекающих факторов.',
     'about.openApp': 'Открыть приложение',
@@ -284,6 +285,7 @@ const translations: Record<Locale, Dict> = {
     'catalog.phrasal.description': 'Common phrasal verbs to practise.',
 
     'about.eyebrow': 'START HERE',
+    'about.open': 'About OpenFlash',
     'about.title': 'Flashcards for focused learning.',
     'about.lead': 'OpenFlash helps you create flashcards, review them at a sustainable pace, and see your progress without distractions.',
     'about.openApp': 'Open the app',
