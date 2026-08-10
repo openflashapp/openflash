@@ -23,6 +23,7 @@ export function DeckStoreScreen({ onBack, toast }: Props) {
       </header>
 
       <p className="deck-store-lead">{t('catalog.lead')}</p>
+      <p className="deck-store-notice" role="status">{t('catalog.development')}</p>
 
       <div className="deck-store-grid">
         {ENGLISH_DECK_CATALOG.map(deck => {
