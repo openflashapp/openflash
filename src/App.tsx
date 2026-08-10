@@ -10,6 +10,7 @@ import { SummaryScreen } from './screens/SummaryScreen'
 import { SettingsScreen } from './screens/SettingsScreen'
 import { ThemesScreen } from './screens/ThemesScreen'
 import { DeckStoreScreen } from './screens/DeckStoreScreen'
+import { AboutScreen } from './screens/AboutScreen'
 import { AIBot } from './components/AIBot'
 import { useToast } from './components/Toast'
 import { PageTransition } from './components/PageTransition'
@@ -64,7 +65,7 @@ function AppInner() {
   const { show, toastEl } = useToast()
 
   const [locale, setLocale] = useState<Locale>(() => getPathLocale(window.location.pathname) ?? detectLocale())
-  const t = useCallback((key: string) => getTranslations(locale)[key] || key, [locale])
+  const t = useCallback((key: string) => getTranslations(locale)[key] || getTranslations('en')[key] || key, [locale])
 
   const [route, setRoute] = useState<AppRoute>(() => parseAppRoute(window.location.pathname))
   const { screen, deck: activeDeck } = route
@@ -105,6 +106,10 @@ function AppInner() {
       favicon.href = `data:image/svg+xml,${encodeURIComponent(svg)}`
     }
   }, [theme])
+
+  useEffect(() => {
+    document.documentElement.lang = locale
+  }, [locale])
 
   useEffect(() => {
     document.body.classList.toggle('developer-mode', settings.developerMode)
@@ -197,6 +202,11 @@ function AppInner() {
           {screen === 'deck-store' && (
             <PageTransition key="deck-store">
               <DeckStoreScreen onBack={() => navigate('decks')} toast={show} />
+            </PageTransition>
+          )}
+          {screen === 'about' && (
+            <PageTransition key="about">
+              <AboutScreen onStart={() => navigate('decks')} onAccount={() => navigate('account')} />
             </PageTransition>
           )}
             <AIBot open={aiOpen} onClose={() => setAIOpen(false)} toast={show} />

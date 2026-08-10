@@ -1,6 +1,6 @@
 import type { Locale } from './i18n'
 
-export type AppScreen = 'decks' | 'deck-detail' | 'study' | 'stats' | 'summary' | 'settings' | 'account' | 'themes' | 'deck-store'
+export type AppScreen = 'decks' | 'deck-detail' | 'study' | 'stats' | 'summary' | 'settings' | 'account' | 'themes' | 'deck-store' | 'about'
 
 export interface AppRoute {
   screen: AppScreen
@@ -20,6 +20,7 @@ export function parseAppRoute(pathname: string): AppRoute {
   if (rest === '/account') return { screen: 'account', deck: '' }
   if (rest === '/themes') return { screen: 'themes', deck: '' }
   if (rest === '/deck-store') return { screen: 'deck-store', deck: '' }
+  if (rest === '/about') return { screen: 'about', deck: '' }
   if (rest === '/summary') return { screen: 'summary', deck: '' }
   if (rest.startsWith('/deck/')) return { screen: 'deck-detail', deck: safeDecode(rest.slice(6)) }
   if (rest.startsWith('/study/')) return { screen: 'study', deck: safeDecode(rest.slice(7)) }
@@ -35,6 +36,7 @@ export function buildAppPath(locale: Locale, route: AppRoute): string {
     case 'account': return `${base}/account`
     case 'themes': return `${base}/themes`
     case 'deck-store': return `${base}/deck-store`
+    case 'about': return `${base}/about`
     case 'deck-detail': return `${base}/deck/${encodeURIComponent(route.deck)}`
     case 'study': return `${base}/study/${encodeURIComponent(route.deck)}`
     case 'summary': return `${base}/summary`
@@ -52,6 +54,7 @@ export function getRouteTitle(route: AppRoute): string {
     case 'account': return 'Account'
     case 'themes': return 'Themes'
     case 'deck-store': return 'Deck Store'
+    case 'about': return 'About OpenFlash'
   }
 }
 
