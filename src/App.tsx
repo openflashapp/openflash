@@ -151,7 +151,7 @@ function AppInner() {
       <div style={{ display: 'flex', flexDirection: 'column' }}>
         <Header
           onSettings={() => navigate('settings')}
-          onHome={() => navigate('about')}
+          onHome={() => navigate('decks')}
           onAccount={() => navigate('account')}
           onThemes={() => navigate('themes')}
           onDeckStore={() => navigate('deck-store')}
