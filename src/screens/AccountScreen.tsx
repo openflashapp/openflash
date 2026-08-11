@@ -396,6 +396,10 @@ export function AccountScreen({ onBack, toast }: Props) {
       <div className="account-screen account-screen-narrow">
         <header className="page-heading"><h1>{mode === 'login' ? 'Login' : 'Register'}</h1><button onClick={onBack} style={secondaryBtn}>{t('nav.back')}</button></header>
         <section className="account-card">
+          <div className="account-unavailable-notice" role="status">
+            <strong>{t('account.unavailableTitle')}</strong>
+            <span>{t('account.unavailableBody')}</span>
+          </div>
           <form onSubmit={handleAuth} style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
             {mode === 'register' && (
               <>
@@ -863,7 +867,3 @@ export function AccountScreen({ onBack, toast }: Props) {
     </div>
   )
 }
-          <div className="account-unavailable-notice" role="status">
-            <strong>{t('account.unavailableTitle')}</strong>
-            <span>{t('account.unavailableBody')}</span>
-          </div>
