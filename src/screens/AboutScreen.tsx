@@ -1,5 +1,6 @@
 import { useLocale } from '../lib/i18n'
 import { primaryBtn, secondaryBtn } from '../lib/styles'
+import { FlashLogo } from '../components/Icons'
 
 interface Props {
   onStart: () => void
@@ -16,6 +17,11 @@ export function AboutScreen({ onStart, onAccount }: Props) {
 
   return (
     <div className="about-screen">
+      <header className="about-header">
+        <button type="button" onClick={onStart} aria-label="OpenFlash app">
+          <FlashLogo style={{ width: 'clamp(112px, 13vw, 152px)', height: 'auto' }} />
+        </button>
+      </header>
       <section className="about-hero" aria-labelledby="about-title">
         <p className="about-eyebrow">OPENFLASH / {t('about.eyebrow')}</p>
         <h1 id="about-title">{t('about.title')}</h1>
