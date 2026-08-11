@@ -443,9 +443,11 @@ export function AccountScreen({ onBack, toast }: Props) {
             }}>
               {loading ? '...' : mode === 'login' ? 'Login' : 'Register'}
             </button>
-            <button type="button" onClick={handlePasskeyLogin} disabled={loading} style={{ ...providerBtn, opacity: loading ? 0.6 : 1 }}>
-              {loading ? '...' : 'Sign in with passkey'}
-            </button>
+            {mode === 'login' && (
+              <button type="button" onClick={handlePasskeyLogin} disabled={loading} style={{ ...providerBtn, opacity: loading ? 0.6 : 1 }}>
+                {loading ? '...' : 'Sign in with passkey'}
+              </button>
+            )}
           </form>
           <div style={{ marginTop: 16, textAlign: 'center', fontSize: 13, color: 'var(--text-secondary)' }}>
             {mode === 'login' ? (
