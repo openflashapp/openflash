@@ -494,7 +494,7 @@ select {
 @media (max-width: 620px) { .deck-grid { grid-template-columns: minmax(0, 1fr); } }
 @media (min-width: 621px) and (max-width: 900px) { .deck-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 
-.about-screen { width: min(100%, 920px); margin: 0 auto; display: flex; flex-direction: column; gap: 18px; }
+.about-page { box-sizing: border-box; min-height: 100vh; padding: clamp(20px, 4vw, 48px); }.about-screen { width: min(100%, 920px); margin: 0 auto; display: flex; flex-direction: column; gap: 18px; }
 .about-hero { padding: clamp(28px, 6vw, 64px); border: 1px solid var(--border); border-radius: 3px; background: linear-gradient(135deg, color-mix(in srgb, var(--accent) 13%, var(--surface)) 0%, color-mix(in srgb, var(--surface) 88%, transparent) 56%); }
 .about-eyebrow, .about-section-heading > span { margin: 0; color: var(--accent); font: 10px var(--font-mono); letter-spacing: 1.3px; text-transform: uppercase; }
 .about-hero h1 { max-width: 700px; margin: 15px 0; color: var(--text); font: 700 clamp(32px, 6vw, 58px)/1.05 'Sora', sans-serif; letter-spacing: -2px; }

@@ -148,6 +148,11 @@ function AppInner() {
 
   return (
     <LocaleContext.Provider value={{ locale, t, setLocale: handleSetLocale }}>
+      {screen === 'about' ? (
+        <div className="about-page">
+          <AboutScreen onStart={() => navigate('decks')} onAccount={() => navigate('account')} />
+        </div>
+      ) : (
       <div style={{ display: 'flex', flexDirection: 'column' }}>
         <Header
           onSettings={() => navigate('settings')}
@@ -204,11 +209,6 @@ function AppInner() {
               <DeckStoreScreen onBack={() => navigate('decks')} toast={show} />
             </PageTransition>
           )}
-          {screen === 'about' && (
-            <PageTransition key="about">
-              <AboutScreen onStart={() => navigate('decks')} onAccount={() => navigate('account')} />
-            </PageTransition>
-          )}
             <AIBot open={aiOpen} onClose={() => setAIOpen(false)} toast={show} />
             <CookieNotice />
             {toastEl}
@@ -216,6 +216,7 @@ function AppInner() {
           <DeveloperConsole open={settings.developerMode} />
         </div>
       </div>
+      )}
     </LocaleContext.Provider>
   )
 }
