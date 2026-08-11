@@ -64,6 +64,9 @@ const translations: Record<Locale, Dict> = {
     'about.signInTitle': 'Безопасный вход',
     'about.signInBody': 'Можно войти по паролю, с помощью ключа доступа или доступного провайдера. При входе через Google используются только базовый профиль и e-mail для создания или доступа к аккаунту. OpenFlash не читает письма, файлы, контакты или другой контент Google.',
 
+    'account.unavailableTitle': 'Вход и регистрация пока недоступны',
+    'account.unavailableBody': 'Вы можете продолжать пользоваться OpenFlash локально на этом устройстве.',
+
     'status.title': 'Статус',
     'status.stats': 'Статистика',
     'status.due': 'Готово к повторению',
@@ -308,6 +311,9 @@ const translations: Record<Locale, Dict> = {
     'about.accountBody': 'An account lets you sync learning data across devices. You can delete the account and its data in settings.',
     'about.signInTitle': 'Secure sign-in',
     'about.signInBody': 'Sign in with a password, passkey, or an available provider. Google Sign-In uses only basic profile and email to create or access an account. OpenFlash does not read Google messages, files, contacts, or other content.',
+
+    'account.unavailableTitle': 'Sign-in and registration are temporarily unavailable',
+    'account.unavailableBody': 'You can continue using OpenFlash locally on this device.',
 
     'status.title': 'Status',
     'status.stats': 'Stats',

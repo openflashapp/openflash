@@ -863,3 +863,7 @@ export function AccountScreen({ onBack, toast }: Props) {
     </div>
   )
 }
+          <div className="account-unavailable-notice" role="status">
+            <strong>{t('account.unavailableTitle')}</strong>
+            <span>{t('account.unavailableBody')}</span>
+          </div>
